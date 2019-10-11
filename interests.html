@@ -1,3 +1,22 @@
+<?php
+include 'connection.php';
+
+if (isset($_POST['ok'])) {
+	$uid = $_POST['uid'];
+	$sports = $_POST['sports'];
+	$health = $_POST['health'];
+	$technology = $_POST['technology'];
+	$education = $_POST['education'];
+	$food = $_POST['food'];
+	$travel = $_POST['travel'];
+	$fashion = $_POST['fashion'];
+	$celebrity = $_POST['celebrity'];
+
+	mysqli_query($con, "UPDATE interest SET sports='$sports', health='$health', tech='$technology', edu='$education', food='$food', travel='$travel', fashion='$fashion', celeb='$celebrity' WHERE uid='$uid'");
+
+	echo "<script>window.location='index.php</script>";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,19 +26,22 @@
 </head>
 <body>
 	<div class="wrapper">
-		<span class="login-text">Please select your field of interest.<br>(Atleast 3)</span>
-		<br><br><br>
-		<span class="chkbx">
-			<input type="checkbox" name="select">Sports<br>
-			<input type="checkbox" name="select">Health<br>
-			<input type="checkbox" name="select">Technology<br>
-			<input type="checkbox" name="select">Education<br>
-			<input type="checkbox" name="select">Food<br>
-			<input type="checkbox" name="select">Travel<br>
-			<input type="checkbox" name="select">Fashion<br>
-			<input type="checkbox" name="select">Celebrity<br>
-		</span>
-		<div style="margin-top:10%;"><center><a href="recent.html" class="login-lnk"><button name="ok" class="login-btn">Ok<img src="rarrow.png"></button></a></center></div>
+		<form action="" method="POST">
+			<span class="login-text">Please select your field of interest.<br>(Atleast 3)</span>
+			<br><br><br>
+			<span class="chkbx">
+				<input type="checkbox" name="sports" value='1'>Sports<br>
+				<input type="checkbox" name="health" value='1'>Health<br>
+				<input type="checkbox" name="technology" value='1'>Technology<br>
+				<input type="checkbox" name="education" value='1'>Education<br>
+				<input type="checkbox" name="food" value='1'>Food<br>
+				<input type="checkbox" name="travel" value='1'>Travel<br>
+				<input type="checkbox" name="fashion" value='1'>Fashion<br>
+				<input type="checkbox" name="celebrity" value='1'>Celebrity<br>
+				<input type="hidden" name="uid" value="<?php echo $_GET['user']; ?>"><br>
+			</span>
+			<div style="margin-top:10%;"><center><button type="submit" name="ok" class="login-btn">Ok<img src="rarrow.png"></button></center></div>
+		</form>
 	</div>
 </body>
 </html>
