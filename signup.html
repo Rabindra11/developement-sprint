@@ -1,3 +1,19 @@
+<?php
+include 'connection.php';
+
+if (isset($_POST['create'])) {
+	$nm = $_POST['name'];
+	$email = $_POST['email'];
+	$pwd = $_POST['pwd'];
+
+	mysqli_query($con, "INSERT INTO user (name, email, password) VALUES ('$nm', '$email', '$pwd')");
+	$lstid = mysqli_insert_id($con);
+	mysqli_query($con, "INSERT INTO interest (uid) VALUES ('$lstid')");
+
+	echo "<script>window.location='interests.php?user=$lstid'</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,21 +23,26 @@
 </head>
 <body>
 <div class="wrapper">
+	<center><h2>Already have an account</h2><br><a href="login.php"><button name="login" class="login-btn">Login</button></a></center><br>
 	<center><h1>SIGN UP</h1></center>
-	<span class="login-text">Name:</span>
-	<input type="text" name="name" class="login-input">
-	<span class="login-text">Email:</span>
-	<input type="email" name="name" class="login-input">
-	<span class="login-text">Password:</span>
-	<input type="password" name="name" class="login-input">
-
+	<form action="" method="POST">
+		<span class="login-text">Name:</span>
+		<input type="text" name="name" class="login-input">
+		<span class="login-text">Email:</span>
+		<input type="email" name="email" class="login-input">
+		<span class="login-text">Password:</span>
+		<input type="password" name="pwd" class="login-input">
+		<br>
+		<center><button type="submit" name="create" class="login-btn">Create<img src="rarrow.png"></button></center>
+	</form>
+	<br>
 	<center>OR</center>
+
 
 	<span class="login-text">Signup with other accounts:</span><br><br>
 	<img src="fb.png" class="login-img">
 	<img src="google.png" class="login-img">
-	<br><br>
-	<center><a href="interests.html" class="login-lnk"><button name="create" class="login-btn">Create<img src="rarrow.png"></button></a></center>
+	<br>
 </div>
 
 
