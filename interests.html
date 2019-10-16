@@ -1,22 +1,3 @@
-<?php
-include 'connection.php';
-
-if (isset($_POST['ok'])) {
-	$uid = $_POST['uid'];
-	$sports = $_POST['sports'];
-	$health = $_POST['health'];
-	$technology = $_POST['technology'];
-	$education = $_POST['education'];
-	$food = $_POST['food'];
-	$travel = $_POST['travel'];
-	$fashion = $_POST['fashion'];
-	$celebrity = $_POST['celebrity'];
-
-	mysqli_query($con, "UPDATE interest SET sports='$sports', health='$health', tech='$technology', edu='$education', food='$food', travel='$travel', fashion='$fashion', celeb='$celebrity' WHERE uid='$uid'");
-
-	echo "<script>window.location='index.php</script>";
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +7,7 @@ if (isset($_POST['ok'])) {
 </head>
 <body>
 	<div class="wrapper">
-		<form action="" method="POST">
+		<form action="index.html" method="POST">
 			<span class="login-text">Please select your field of interest.<br>(Atleast 3)</span>
 			<br><br><br>
 			<span class="chkbx">
@@ -38,7 +19,6 @@ if (isset($_POST['ok'])) {
 				<input type="checkbox" name="travel" value='1'>Travel<br>
 				<input type="checkbox" name="fashion" value='1'>Fashion<br>
 				<input type="checkbox" name="celebrity" value='1'>Celebrity<br>
-				<input type="hidden" name="uid" value="<?php echo $_GET['user']; ?>"><br>
 			</span>
 			<div style="margin-top:10%;"><center><button type="submit" name="ok" class="login-btn">Ok<img src="rarrow.png"></button></center></div>
 		</form>
