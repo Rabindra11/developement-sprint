@@ -8,14 +8,17 @@
 <body>
 <div class="wrapper">
 	<center><h1>LOGIN</h1></center>
-	<span class="login-text">Email:</span>
-	<input type="email" name="name" class="login-input">
-	<span class="login-text">Password:</span>
-	<input type="password" name="name" class="login-input">
+	<form action="index.html" method="POST">
+		<span class="login-text">Email:</span>
+		<input type="email" name="email" class="login-input">
+		<span class="login-text">Password:</span>
+		<input type="password" name="pwd" class="login-input">
 
-	<input type="checkbox" name="remember"> Remember me
-
-	<center><a href="recent.html" class="login-lnk"><button name="login" class="login-btn">Login</button></a></center>
+		<input type="checkbox" name="remember"> Remember me
+		<center><button type="submit" name="login" class="login-btn">Login</button></center>
+	</form>
+	<br><br><br>
+	<center><h2>New User?</h2><br><a href="signup.html"><button name="register" class="login-btn">Register</button></a></center>
 </div>
 
 
