@@ -7,9 +7,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-	<div class="wrapper"><?php include 'header.php'; ?></div>
 	<div class="wrapper">
-		<h1><a href="recent.php" style="text-decoration: none; color: black;">Recent</a> <a href="trending.php" style="text-decoration: none; color: black;">Trending</a></h1>
+		<div class="header">
+			<div class="header-style">
+				<div class="header-left"><a href="profile.html"><img src="profile.png"></a></div>
+				<div class="header-right">
+					<a href="login.html" style="right:0px;"><img src="login.png"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper">
+		<h1><a href="recent.html" style="text-decoration: none; color: black;">Recent</a> <a href="trending.html" style="text-decoration: none; color: black;">Trending</a></h1>
 
 		<div style="width: 100%;">
 			<div style="border: solid black; width: 100%; height: 20%;">
@@ -86,7 +95,17 @@
 
 		<br>
 
-		<?php include 'footer.php'; ?>
+		<div class="footer">
+			<div class="footer-style">
+				<center>
+					<a href="index.html"><img src="home.png"></a>
+					<a href="news.html"><img src="news.png"></a>
+					<a href="video.html"><img src="videos.png"></a>
+					<a href="search.html"><img src="search.png"></a>
+					<a href="explore.html"><img src="explore.png"></a>
+				</center>
+			</div>
+		</div>
 	</div>
 </body>
 <script src="script.js" type="text/javascript"></script>
